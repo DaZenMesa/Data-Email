@@ -1,0 +1,6 @@
+gunicorn
+itsdangerous
+Jinja2
+Werkzeug>=0.14
+wheel
+Flask_Mail
