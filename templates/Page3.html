@@ -3,14 +3,13 @@
 {% block title %}Data Reporter{% endblock %}
 
 {% block content %}
-  <h>Page 2</h>
-  <form action="/next2" method="POST">
+  <h>Page 3</h>
+  <form action="/finish" method="POST">
       <label for="comment">Comment:</label>
       <textarea name='data' class="form-control" rows="5" id="comment"></textarea>
-      <button type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
+      <button type="submit" value='Post' class="btn btn-outline-success btn-lg">Finish</button>
   </form>
   <form action="/home" method="POST">
   <button type="submit" class="btn btn-outline-danger btn-lg">Home</button>
   </form>
-
 {% endblock %}

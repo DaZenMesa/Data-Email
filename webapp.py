@@ -15,7 +15,7 @@ app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'mehufarm@gmail.com'
-app.config['MAIL_PASSWORD'] = 'mehufarm'
+app.config['MAIL_PASSWORD'] = os.environ['MAIL_PASSWORD']
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail=Mail(app)
@@ -36,14 +36,18 @@ def rendernext1():
 
 @app.route('/next2',methods=["POST","GET"])
 def rendernext2():
-    
-    messg = "'" + str(request.form['data']) + "'"
-    msg = Message('Hello', sender = 'mehufarm@gmail.com', recipients = ['mehufarm@gmail.com'])
-    msg.body = "This is the email body"
-    msg.attach("Test.csv", "text/csv" , messg )
+    session["data1"]=request.form["data"]
+    return render_template('Page3.html')
+
+@app.route('/finish',methods=["POST","GET"])
+def renderfinish():
+
+    messg = str(request.form['data'])  + session['data1']
+    msg = Message('User Dats', sender = 'mehufarm@gmail.com', recipients = ['mehufarm@gmail.com'])
+    msg.attach("data.csv", "data/csv" , messg )
 
     mail.send(msg)
-    return render_template('Page2.html' , sent="yes")
+    return render_template('Page1.html' , sent="Your survey is complete and your awnsers are sent.")
 
 
 @app.route('/home',methods=["POST","GET"])
