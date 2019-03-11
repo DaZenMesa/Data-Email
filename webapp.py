@@ -27,6 +27,9 @@ def Page1():
 @app.route('/Page2')
 def Page2():
     return render_template('Page2.html')
+@app.route('/Page3')
+def Page3():
+    return render_template('Page3.html')
 
 
 @app.route('/next1',methods=["POST","GET"])
