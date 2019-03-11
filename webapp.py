@@ -55,5 +55,4 @@ def renderhome():
     return render_template('Page1.html')
 
 if __name__ == '__main__':
-    os.system("echo json(array) > file")
     app.run()
