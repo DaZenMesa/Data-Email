@@ -30,7 +30,9 @@ def Page2():
 @app.route('/Page3')
 def Page3():
     return render_template('Page3.html')
-
+@app.route('/Page4')
+def Page4():
+    return render_template('Page4.html')
 
 @app.route('/next1',methods=["POST","GET"])
 def rendernext1():
@@ -39,13 +41,21 @@ def rendernext1():
 
 @app.route('/next2',methods=["POST","GET"])
 def rendernext2():
+    print(request.form)
     session["data1"]=request.form["data"]
     return render_template('Page3.html')
+
+@app.route('/next3',methods=["POST","GET"])
+def rendernext3():
+    print(request.form)
+    session["data2"]=request.form["data"]
+    return render_template('Page4.html')
+
 
 @app.route('/finish',methods=["POST","GET"])
 def renderfinish():
 
-    messg = str(request.form['data'])  + session['data1']
+    messg = session['data1'] + ',' + session['data2'] + ',' + str(request.form['data']) 
     msg = Message('User Dats', sender = 'mehufarm@gmail.com', recipients = ['mehufarm@gmail.com'])
     msg.attach("data.csv", "data/csv" , messg )
 

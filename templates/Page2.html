@@ -3,10 +3,20 @@
 {% block title %}Data Reporter{% endblock %}
 
 {% block content %}
-  <h>Page 2</h>
+  <p class='head'>What Is Your Gender?</p>
   <form action="/next2" method="POST">
-      <label for="comment">Comment:</label>
-      <textarea name='data' class="form-control" rows="5" id="comment"></textarea>
+    <div class="radio">
+      <label><input type="radio" name="data" value="male" checked>Male</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="data" value="female" >Female </label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="data" value="other">Other</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="data" value="mrs.adams">Mrs.Adams</label>
+    </div>
       <button type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
   </form>
   <form action="/home" method="POST">
