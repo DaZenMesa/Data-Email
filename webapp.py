@@ -1,10 +1,11 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask import render_template
 from flask_mail import Mail, Message
-
+from time import localtime, strftime
 import csv
 import pprint
 import os
+
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ mail=Mail(app)
 
 @app.route('/')
 def Page1():
+    print(strftime("%a, %d %b %Y %H:%M:%S", localtime()))
     return render_template('Page1.html')
 
 @app.route('/Page2')
@@ -56,7 +58,7 @@ def rendernext3():
 @app.route('/finish',methods=["POST","GET"])
 def renderfinish():
 
-    messg = session['data1'] + ',' + session['data2'] + ',' + str(request.form['data'])
+    messg = 'Name: ' + session['data1'] + ',' + 'Smash Main: '+ session['data2'] + ',' +"Region: "+ str(request.form['data'] + ',' +'Time; '+ (strftime(" %d %b %Y %H:%M:%S", localtime())))
     msg = Message('User Dats', sender = 'mehufarm@gmail.com', recipients = ['mehufarm@gmail.com'])
     msg.attach("data.csv", "data/csv" , messg )
 
