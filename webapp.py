@@ -36,12 +36,13 @@ def Page4():
 
 @app.route('/next1',methods=["POST","GET"])
 def rendernext1():
-    #messg = request.form['data']
     return render_template('Page2.html')
 
 @app.route('/next2',methods=["POST","GET"])
 def rendernext2():
     print(request.form)
+    if request.form["data"] == 'mrs.adams':
+        return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
     session["data1"]=request.form["data"]
     return render_template('Page3.html')
 
@@ -55,7 +56,7 @@ def rendernext3():
 @app.route('/finish',methods=["POST","GET"])
 def renderfinish():
 
-    messg = session['data1'] + ',' + session['data2'] + ',' + str(request.form['data']) 
+    messg = session['data1'] + ',' + session['data2'] + ',' + str(request.form['data'])
     msg = Message('User Dats', sender = 'mehufarm@gmail.com', recipients = ['mehufarm@gmail.com'])
     msg.attach("data.csv", "data/csv" , messg )
 
