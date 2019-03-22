@@ -6,10 +6,10 @@
 <p>Upload a Picture of Your Passport or Your Birth Certificate </p>
 <form action="/finish" method="POST" enctype="multipart/form-data">
   <input name="data" type="file" id="myFile">
-  <button type="submit" class="btn btn-outline-success btn-lg">Finish</button>
+  <button id="buttonright" type="submit" class="btn btn-outline-success btn-lg">Finish</button>
 </form>
 <form action="/home" method="POST">
-  <button type="submit" class="btn btn-outline-danger btn-lg">Home</button>
+  <button id="buttonleft" type="submit" class="btn btn-outline-danger btn-lg">Home</button>
 </form>
 
 {% endblock %}

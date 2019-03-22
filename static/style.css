@@ -1,1 +1,34 @@
+.head
+{
+	font-size:250%;
+	text-align:center;
+}
 
+.subhead
+{
+	font-size:150%;
+	text-align:center;
+}
+
+.buttonright , #buttonright
+{
+    margin: 0 auto;
+    float: right;
+}
+
+.buttonleft , #buttonleft
+{
+    margin: 0 auto;
+    float: left;
+}
+
+.buttoncenter{
+  display: block;
+  float: left;
+  margin:20px;
+}
+
+body{
+
+	background:rgb(240,240,240);
+}

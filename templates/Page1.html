@@ -3,11 +3,12 @@
 {% block title %}Data Reporter{% endblock %}
 
 {% block content %}
-<p class='head'>This is a survey about you determine a corilation between your smash main and your personality. Press Next to continue</p>
-<form action="/next1" method="POST">
+<p class="head">This is a survey about you determine a corilation between your smash main and your personality! </p>
+<p class="subhead">Press Next to continue</p>
+<form class="buttonright" action="/next1" method="POST">
   <button type="submit" class="btn btn-outline-success btn-lg">Next</button>
 </form>
-<form action="/home" method="POST">
+<form class="buttonleft" action="/home" method="POST">
   <button type="submit" class="btn btn-outline-danger btn-lg">Home</button>
 </form>
 <p> {{sent}} </p>

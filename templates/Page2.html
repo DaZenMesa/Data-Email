@@ -3,8 +3,8 @@
 {% block title %}Data Reporter{% endblock %}
 
 {% block content %}
-<h>Who Is Your Smash Main?</h>
-<form action="/next2" method="POST">
+<p class="head">Who Is Your Smash Main?</p>
+<form  action="/next2" method="POST">
   <div class="form-group">
     <label for="sel1">Select One</label>
     <select name='data' class="form-control" id="sel1">
@@ -162,9 +162,9 @@
       <option>
     </select>
   </div>
-  <button type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
+  <button id="buttonright" type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
 </form>
 <form action="/home" method="POST">
-  <button type="submit" class="btn btn-outline-danger btn-lg">Home</button>
+  <button id="buttonleft"type="submit" class="btn btn-outline-danger btn-lg">Home</button>
 </form>
 {% endblock %}

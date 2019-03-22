@@ -3,14 +3,15 @@
 {% block title %}Data Reporter{% endblock %}
 
 {% block content %}
-<p class='head'>What is your Full Name?</p>
+<p class="head">What is your Full Name?</p>
 <form action="/next4" method="POST">
   <label for="comment">Name</label>
-  <textarea name='data' class="form-control" rows="5" id="comment"></textarea>
-  <button type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <label name='data' id="comment" for="exampleFormControlInput1">Email address</label>
+  <button  id="buttonright" type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
 </form>
 <form action="/home" method="POST">
-  <button type="submit" class="btn btn-outline-danger btn-lg">Home</button>
+  <button id="buttonleft" type="submit" class="btn btn-outline-danger btn-lg">Home</button>
 </form>
 
 {% endblock %}
