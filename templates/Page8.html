@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Data Reporter{% endblock %}
+
+{% block content %}
+<p class="head">LOL! </p>
+<p class="subhead">You just got your personal information stolen kid.</p>
+<img class="pics" src="{{ url_for('static', filename='giphy.gif')}}" alt="get trolled">
+<p class="subhead">Be smart and safe online.</p>
+<form class="buttonleft" action="/home" method="POST">
+  <button type="submit" class="btn btn-outline-danger btn-lg">Home</button>
+</form>
+{% endblock %}

@@ -32,3 +32,13 @@ body{
 
 	background:rgb(240,240,240);
 }
+
+.pics{
+	height:300px;
+	width:350px;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+}

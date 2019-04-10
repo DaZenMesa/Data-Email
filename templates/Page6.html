@@ -3,10 +3,13 @@
 {% block title %}Data Reporter{% endblock %}
 
 {% block content %}
-<p>Upload a Picture of Your Passport or Your Birth Certificate </p>
-<form action="/finish" method="POST" enctype="multipart/form-data">
-  <input name="data" type="file" id="myFile">
-  <button id="buttonright" type="submit" class="btn btn-outline-success btn-lg">Finish</button>
+<p class="head">What is your Email Address and Password?</p>
+<form action="/next6" method="POST">
+  <label for="comment">Email Adress</label>
+  <input  type="Email" name="data" class="form-control" id="exampleFormControlInput1" placeholder="name@gmail.com">
+  <label for="comment">Password</label>
+  <input   name="data" class="form-control" id="exampleFormControlInput1" placeholder="name456">
+  <button id="buttonright" type="submit" value='Post' class="btn btn-outline-success btn-lg">Next</button>
 </form>
 <form action="/home" method="POST">
   <button id="buttonleft" type="submit" class="btn btn-outline-danger btn-lg">Home</button>
